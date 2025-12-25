@@ -252,4 +252,4 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 
 - [toutago-datamapper](https://github.com/toutago/toutago-datamapper) - Core data mapper library
 - [toutago-datamapper-postgres](https://github.com/toutago/toutago-datamapper-postgres) - PostgreSQL adapter
-- [toutago-datamapper-redis](https://github.com/toutago/toutago-datamapper-redis) - Redis adapter
+
