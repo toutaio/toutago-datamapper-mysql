@@ -8,7 +8,7 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/toutago/toutago-datamapper/adapter"
+	"github.com/toutaio/toutago-datamapper/adapter"
 	_ "github.com/go-sql-driver/mysql"
 )
 

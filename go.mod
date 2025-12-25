@@ -1,10 +1,10 @@
-module github.com/toutago/toutago-datamapper-mysql
+module github.com/toutaio/toutago-datamapper-mysql
 
 go 1.21.5
 
 require (
 	github.com/go-sql-driver/mysql v1.9.3
-	github.com/toutago/toutago-datamapper v0.1.0
+	github.com/toutaio/toutago-datamapper v0.1.0
 )
 
 require (
@@ -12,4 +12,4 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
 
-replace github.com/toutago/toutago-datamapper => /home/nestor/Proyects/toutago-datamapper
+replace github.com/toutaio/toutago-datamapper => /home/nestor/Proyects/toutago-datamapper

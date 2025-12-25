@@ -4,9 +4,9 @@ import (
 	"context"
 	"log"
 
-	"github.com/toutago/toutago-datamapper/config"
-	"github.com/toutago/toutago-datamapper/engine"
-	mysql "github.com/toutago/toutago-datamapper-mysql"
+	"github.com/toutaio/toutago-datamapper/config"
+	"github.com/toutaio/toutago-datamapper/engine"
+	mysql "github.com/toutaio/toutago-datamapper-mysql"
 )
 
 type User struct {
