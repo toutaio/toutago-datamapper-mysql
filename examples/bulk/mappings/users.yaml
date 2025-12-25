@@ -1,0 +1,25 @@
+object: User
+source: users_db
+
+mappings:
+  - name: bulk_insert
+    type: insert
+    bulk: true
+    statement: users
+    properties:
+      - object: Name
+        data: name
+      - object: Email
+        data: email
+
+  - name: fetch_all
+    type: fetch
+    multi: true
+    statement: "SELECT id, name, email FROM users ORDER BY id"
+    properties:
+      - object: ID
+        data: id
+      - object: Name
+        data: name
+      - object: Email
+        data: email

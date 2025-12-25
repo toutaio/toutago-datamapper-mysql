@@ -1,0 +1,61 @@
+object: User
+source: users_db
+
+mappings:
+  - name: fetch_by_id
+    type: fetch
+    statement: "SELECT id, name, email, created_at FROM users WHERE id = {id}"
+    properties:
+      - object: ID
+        data: id
+      - object: Name
+        data: name
+      - object: Email
+        data: email
+      - object: CreatedAt
+        data: created_at
+
+  - name: fetch_by_email_pattern
+    type: fetch
+    multi: true
+    statement: "SELECT id, name, email, created_at FROM users WHERE email LIKE {email_pattern}"
+    properties:
+      - object: ID
+        data: id
+      - object: Name
+        data: name
+      - object: Email
+        data: email
+      - object: CreatedAt
+        data: created_at
+
+  - name: insert
+    type: insert
+    statement: users
+    properties:
+      - object: Name
+        data: name
+      - object: Email
+        data: email
+    generated:
+      - object: ID
+        data: id
+
+  - name: update
+    type: update
+    statement: users
+    identifier:
+      - object: ID
+        data: id
+    properties:
+      - object: Name
+        data: name
+      - object: Email
+        data: email
+
+  - name: delete
+    type: delete
+    statement: users
+    identifier:
+      - object: ID
+        data: id
