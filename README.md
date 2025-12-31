@@ -1,5 +1,9 @@
 # MySQL Adapter for Toutago DataMapper
 
+[![Go Reference](https://pkg.go.dev/badge/github.com/toutaio/toutago-datamapper-mysql.svg)](https://pkg.go.dev/github.com/toutaio/toutago-datamapper-mysql)
+[![Go Report Card](https://goreportcard.com/badge/github.com/toutaio/toutago-datamapper-mysql)](https://goreportcard.com/report/github.com/toutaio/toutago-datamapper-mysql)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+
 A MySQL database adapter implementation for [toutago-datamapper](https://github.com/toutaio/toutago-datamapper), providing full CRUD operations, bulk inserts, transactions, and custom query execution.
 
 ## Features
