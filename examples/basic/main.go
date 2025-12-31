@@ -4,6 +4,7 @@ import (
 	"context"
 	"log"
 
+	"github.com/toutaio/toutago-datamapper/adapter"
 	"github.com/toutaio/toutago-datamapper/config"
 	"github.com/toutaio/toutago-datamapper/engine"
 	mysql "github.com/toutaio/toutago-datamapper-mysql"
@@ -24,14 +25,10 @@ func main() {
 		log.Fatalf("Failed to create mapper: %v", err)
 	}
 	
-	mapper.RegisterAdapter("mysql", func(source config.Source) (engine.Adapter, error) {
+	mapper.RegisterAdapter("mysql", func(source config.Source) (adapter.Adapter, error) {
 		adapter := mysql.NewMySQLAdapter()
 		return adapter, nil
 	})
-
-	if err := mapper.LoadMappings("mappings/"); err != nil {
-		log.Fatalf("Failed to load mappings: %v", err)
-	}
 
 	ctx := context.Background()
 
