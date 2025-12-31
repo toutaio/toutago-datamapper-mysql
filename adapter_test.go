@@ -70,11 +70,11 @@ func TestMySQLAdapter_BuildQuery(t *testing.T) {
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
 			result, args := a.buildQuery(tt.query, tt.params)
-			
+
 			if result != tt.expected {
 				t.Errorf("expected query '%s', got '%s'", tt.expected, result)
 			}
-			
+
 			if len(args) != tt.argCount {
 				t.Errorf("expected %d arguments, got %d", tt.argCount, len(args))
 			}
@@ -93,7 +93,7 @@ func TestMySQLAdapter_ConfigHelpers(t *testing.T) {
 	if val := getStringConfig(config, "string_val", "default"); val != "test" {
 		t.Errorf("expected 'test', got '%s'", val)
 	}
-	
+
 	if val := getStringConfig(config, "missing", "default"); val != "default" {
 		t.Errorf("expected 'default', got '%s'", val)
 	}
@@ -102,11 +102,11 @@ func TestMySQLAdapter_ConfigHelpers(t *testing.T) {
 	if val := getIntConfig(config, "int_val", 0); val != 42 {
 		t.Errorf("expected 42, got %d", val)
 	}
-	
+
 	if val := getIntConfig(config, "float_val", 0); val != 3 {
 		t.Errorf("expected 3, got %d", val)
 	}
-	
+
 	if val := getIntConfig(config, "missing", 99); val != 99 {
 		t.Errorf("expected 99, got %d", val)
 	}
@@ -115,7 +115,7 @@ func TestMySQLAdapter_ConfigHelpers(t *testing.T) {
 func TestMySQLAdapter_NotConnectedErrors(t *testing.T) {
 	a := NewMySQLAdapter()
 	ctx := context.Background()
-	
+
 	op := &adapter.Operation{
 		Type:      adapter.OpFetch,
 		Statement: "users",

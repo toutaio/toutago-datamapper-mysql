@@ -4,10 +4,10 @@ import (
 	"context"
 	"log"
 
+	mysql "github.com/toutaio/toutago-datamapper-mysql"
 	"github.com/toutaio/toutago-datamapper/adapter"
 	"github.com/toutaio/toutago-datamapper/config"
 	"github.com/toutaio/toutago-datamapper/engine"
-	mysql "github.com/toutaio/toutago-datamapper-mysql"
 )
 
 type User struct {
@@ -19,12 +19,12 @@ type User struct {
 func main() {
 	// For this example to work, you need valid configuration files
 	// See sources.yaml and mappings/users.yaml for examples
-	
+
 	mapper, err := engine.NewMapper("sources.yaml")
 	if err != nil {
 		log.Fatalf("Failed to create mapper: %v", err)
 	}
-	
+
 	mapper.RegisterAdapter("mysql", func(source config.Source) (adapter.Adapter, error) {
 		adapter := mysql.NewMySQLAdapter()
 		return adapter, nil

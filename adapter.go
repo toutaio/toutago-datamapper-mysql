@@ -8,8 +8,8 @@ import (
 	"fmt"
 	"strings"
 
-	"github.com/toutaio/toutago-datamapper/adapter"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/toutaio/toutago-datamapper/adapter"
 )
 
 // MySQLAdapter implements the adapter.Adapter interface for MySQL databases.
@@ -557,7 +557,7 @@ func (a *MySQLAdapter) executeQuery(ctx context.Context, query string, args []in
 // buildQuery replaces named placeholders with positional ones and extracts values.
 func (a *MySQLAdapter) buildQuery(query string, params map[string]interface{}) (string, []interface{}) {
 	var args []interface{}
-	
+
 	// Replace {param_name} with ? and collect values
 	result := query
 	for key, value := range params {
