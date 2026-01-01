@@ -85,7 +85,7 @@ func (a *MySQLAdapter) Connect(ctx context.Context, config map[string]interface{
 
 	// Verify connection
 	if err := db.PingContext(ctx); err != nil {
-		db.Close()
+		_ = db.Close()
 		return fmt.Errorf("mysql: failed to ping database: %w", err)
 	}
 
@@ -115,14 +115,14 @@ func (a *MySQLAdapter) Fetch(ctx context.Context, op *adapter.Operation, params 
 	if err != nil {
 		return nil, fmt.Errorf("mysql: failed to prepare query: %w", err)
 	}
-	defer stmt.Close()
+	defer func() { _ = stmt.Close() }()
 
 	// Execute query
 	rows, err := stmt.QueryContext(ctx, args...)
 	if err != nil {
 		return nil, fmt.Errorf("mysql: query failed: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	// Get column names
 	columns, err := rows.Columns()
@@ -518,7 +518,7 @@ func (a *MySQLAdapter) executeQuery(ctx context.Context, query string, args []in
 	if err != nil {
 		return nil, fmt.Errorf("mysql: query failed: %w", err)
 	}
-	defer rows.Close()
+	defer func() { _ = rows.Close() }()
 
 	// Get column names
 	columns, err := rows.Columns()

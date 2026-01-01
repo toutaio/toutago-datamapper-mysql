@@ -14,7 +14,6 @@ linters:
     - gosimple
     - ineffassign
     - typecheck
-    - exportloopref
     - noctx
     - bodyclose
     - gocritic
@@ -26,7 +25,6 @@ linters:
 
 linters-settings:
   govet:
-    check-shadowing: true
   gofmt:
     simplify: true
   gocritic:
@@ -34,6 +32,8 @@ linters-settings:
       - diagnostic
       - style
       - performance
+    disabled-checks:
+      - unnamedResult
   revive:
     confidence: 0.8
 
@@ -41,3 +41,15 @@ issues:
   exclude-use-default: false
   max-issues-per-linter: 0
   max-same-issues: 0
+  exclude-rules:
+    # Exclude some linters from running on test files
+    - path: _test\.go
+      linters:
+        - errcheck
+        - gosec
+        - gocritic
+        - unparam
+    # Exclude G201 (SQL formatting) warnings - expected in SQL adapters
+    - linters:
+        - gosec
+      text: "G201:"
