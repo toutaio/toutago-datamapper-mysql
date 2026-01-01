@@ -1,5 +1,6 @@
 # MySQL Adapter for Toutā DataMapper
 
+[![CI](https://github.com/toutaio/toutago-datamapper-mysql/actions/workflows/ci.yml/badge.svg)](https://github.com/toutaio/toutago-datamapper-mysql/actions/workflows/ci.yml)
 [![Go Reference](https://pkg.go.dev/badge/github.com/toutaio/toutago-datamapper-mysql.svg)](https://pkg.go.dev/github.com/toutaio/toutago-datamapper-mysql)
 [![Go Report Card](https://goreportcard.com/badge/github.com/toutaio/toutago-datamapper-mysql)](https://goreportcard.com/report/github.com/toutaio/toutago-datamapper-mysql)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
