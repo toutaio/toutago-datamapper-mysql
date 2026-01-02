@@ -27,20 +27,15 @@ jobs:
           go test -v -race -coverprofile=coverage.out ./...
           go tool cover -func=coverage.out
 
-      - name: Run benchmarks
-        run: |
-          go test -bench=. -benchmem ./benchmarks/... > benchmarks.txt
-          cat benchmarks.txt
-
       - name: Check test coverage
         run: |
           COVERAGE=$(go tool cover -func=coverage.out | tail -1 | awk '{print $3}' | sed 's/%//')
           echo "Coverage: $COVERAGE%"
-          if (( $(echo "$COVERAGE < 14.0" | bc -l) )); then
-            echo "❌ Coverage ${COVERAGE}% is below threshold of 14%"
+          if (( $(echo "$COVERAGE < 70.0" | bc -l) )); then
+            echo "❌ Coverage ${COVERAGE}% is below threshold of 70%"
             exit 1
           fi
-          echo "✅ Coverage ${COVERAGE}% meets threshold of 14% (DB adapter)"
+          echo "✅ Coverage ${COVERAGE}% meets threshold of 70% (DB adapter)"
 
       - name: Build
         run: |
