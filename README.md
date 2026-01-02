@@ -245,6 +245,13 @@ go test -v -tags=integration
 docker-compose down
 ```
 
+## Project Information
+
+- **Status**: Production Ready
+- **Current Release**: See [Releases](https://github.com/toutaio/toutago-datamapper-mysql/releases)
+- **Go Version**: 1.22+
+- **Documentation**: [CHANGELOG.md](CHANGELOG.md)
+
 ## License
 
 MIT License - see [LICENSE](LICENSE) file for details.
